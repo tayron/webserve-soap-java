@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema version="1.0"
+      elementFormDefault="unqualified"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      targetNamespace="http://ibk.com.br/v1/pessoa/juridica"
+      xmlns:tns="http://ibk.com.br/v1/pessoa/juridica"
+      xmlns:ebo="http://ibk.com.br/v1/ebo">
+
+   <xsd:import schemaLocation="../../../ebo/PessoaJuridica.xsd" namespace="http://ibk.com.br/v1/ebo" />
+
+   <xsd:element name="removerPessoaJuridicaPorCodigoPessoaInput" type="tns:RemoverPessoaJuridicaPorCodigoPessoaInputType" />
+   <xsd:element name="removerPessoaJuridicaPorCodigoPessoaOutput" type="tns:RemoverPessoaJuridicaPorCodigoPessoaOutputType" />
+
+   <xsd:complexType name="RemoverPessoaJuridicaPorCodigoPessoaInputType">
+      <xsd:sequence>
+         <xsd:element name="codigo-pessoa" type="xsd:long" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="RemoverPessoaJuridicaPorCodigoPessoaOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-juridica" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+        name="AtualizarPessoaFisicaService"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        targetNamespace="http://ibk.com.br/v1/pessoa/fisica"
+        xmlns:tns="http://ibk.com.br/v1/pessoa/fisica"
+        xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <!-- IMPORTS (Namespaces diferentes) -->
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <!-- INCLUDES (Namespaces iguais) -->
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/pessoa/fisica">
+            <xsd:include schemaLocation="AtualizarPessoaFisica.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="atualizarPessoaFisicaInputMsg">
+        <wsdl:part name="input" element="tns:atualizarPessoaFisicaInput" />
+    </wsdl:message>
+    <wsdl:message name="atualizarPessoaFisicaOutputMsg">
+        <wsdl:part name="output" element="tns:atualizarPessoaFisicaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="atualizarPessoaFisicaDadosSocioInputMsg">
+        <wsdl:part name="input" element="tns:atualizarPessoaFisicaDadosSocioInput" />
+    </wsdl:message>
+    <wsdl:message name="atualizarPessoaFisicaDadosSocioOutputMsg">
+        <wsdl:part name="output" element="tns:atualizarPessoaFisicaDadosSocioOutput" />
+    </wsdl:message>
+    
+    
+    <wsdl:message name="atualizarERetornarPessoaFisicaInputMsg">
+        <wsdl:part name="input" element="tns:atualizarERetornarPessoaFisicaInput" />
+    </wsdl:message>
+    <wsdl:message name="atualizarERetornarPessoaFisicaOutputMsg">
+        <wsdl:part name="output" element="tns:atualizarERetornarPessoaFisicaOutput" />
+    </wsdl:message>
+    
+
+    <wsdl:message name="atualizarPessoaFisicaFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="AtualizarPessoaFisicaPortType">
+        <wsdl:operation name="atualizarPessoaFisica">
+            <wsdl:input name="atualizarPessoaFisicaInput" message="tns:atualizarPessoaFisicaInputMsg" />
+            <wsdl:output name="atualizarPessoaFisicaOutput" message="tns:atualizarPessoaFisicaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:atualizarPessoaFisicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="atualizarPessoaFisicaDadosSocio">
+            <wsdl:input name="atualizarPessoaFisicaDadosSocioInput" message="tns:atualizarPessoaFisicaDadosSocioInputMsg" />
+            <wsdl:output name="atualizarPessoaFisicaDadosSocioOutput" message="tns:atualizarPessoaFisicaDadosSocioOutputMsg" />
+            <wsdl:fault name="fault" message="tns:atualizarPessoaFisicaFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="atualizarERetornarPessoaFisica">
+            <wsdl:input name="atualizarERetornarPessoaFisicaInput" message="tns:atualizarERetornarPessoaFisicaInputMsg" />
+            <wsdl:output name="atualizarERetornarPessoaFisicaOutput" message="tns:atualizarERetornarPessoaFisicaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:atualizarPessoaFisicaFault" />
+        </wsdl:operation>
+        
+    </wsdl:portType>
+
+    <wsdl:binding name="AtualizarPessoaFisicaBinding" type="tns:AtualizarPessoaFisicaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        
+        <wsdl:operation name="atualizarPessoaFisica">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="atualizarPessoaFisicaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="atualizarPessoaFisicaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="atualizarPessoaFisicaDadosSocio">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="atualizarPessoaFisicaDadosSocioInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="atualizarPessoaFisicaDadosSocioOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="atualizarERetornarPessoaFisica">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="atualizarERetornarPessoaFisicaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="atualizarERetornarPessoaFisicaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+    </wsdl:binding>
+
+    <wsdl:service name="AtualizarPessoaFisicaService">
+        <wsdl:port name="AtualizarPessoaFisicaPort" binding="tns:AtualizarPessoaFisicaBinding">
+            <soap:address location="http://localhost:8080/base-ws/pessoa/fisica/AtualizarPessoaFisicaService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

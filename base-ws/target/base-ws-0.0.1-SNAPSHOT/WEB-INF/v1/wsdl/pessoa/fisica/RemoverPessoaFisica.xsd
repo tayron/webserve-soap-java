@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema version="1.0"
+      elementFormDefault="unqualified"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      targetNamespace="http://ibk.com.br/v1/pessoa/fisica"
+      xmlns:tns="http://ibk.com.br/v1/pessoa/fisica"
+      xmlns:ebo="http://ibk.com.br/v1/ebo">
+
+   <xsd:import schemaLocation="../../../ebo/PessoaFisica.xsd" namespace="http://ibk.com.br/v1/ebo" />
+
+
+   <xsd:element name="removerPessoaFisicaPorCodigoPessoaInput" type="tns:RemoverPessoaFisicaPorCodigoPessoaInputType" />
+   <xsd:element name="removerPessoaFisicaPorCodigoPessoaOutput" type="tns:RemoverPessoaFisicaPorCodigoPessoaOutputType" />
+
+   <xsd:complexType name="RemoverPessoaFisicaPorCodigoPessoaInputType">
+      <xsd:sequence>
+         <xsd:element name="codigo-pessoa" type="xsd:long" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="RemoverPessoaFisicaPorCodigoPessoaOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+</xsd:schema>

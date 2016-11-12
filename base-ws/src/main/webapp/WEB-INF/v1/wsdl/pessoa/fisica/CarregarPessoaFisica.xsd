@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema version="1.0"
+      elementFormDefault="unqualified"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      targetNamespace="http://ibk.com.br/v1/pessoa/fisica"
+      xmlns:tns="http://ibk.com.br/v1/pessoa/fisica"
+      xmlns:ebo="http://ibk.com.br/v1/ebo">
+
+   <xsd:import schemaLocation="../../../ebo/PessoaFisica.xsd" namespace="http://ibk.com.br/v1/ebo" />
+
+   <xsd:element name="carregarPessoaFisicaPorCodigoPessoaInput" type="tns:CarregarPessoaFisicaPorCodigoPessoaInputType" />
+   <xsd:element name="carregarPessoaFisicaPorCodigoPessoaOutput" type="tns:CarregarPessoaFisicaPorCodigoPessoaOutputType" />
+
+   <xsd:element name="carregarPessoaFisicaDadosSocioPorCodigoPessoaInput" type="tns:CarregarPessoaFisicaDadosSocioPorCodigoPessoaInputType" />
+   <xsd:element name="carregarPessoaFisicaDadosSocioPorCodigoPessoaOutput" type="tns:CarregarPessoaFisicaDadosSocioPorCodigoPessoaOutputType" />
+
+   <xsd:element name="carregarPessoaFisicaPorNumeroPropostaCpfInput" type="tns:CarregarPessoaFisicaPorNumeroPropostaCpfInputType" />
+   <xsd:element name="carregarPessoaFisicaPorNumeroPropostaCpfOutput" type="tns:CarregarPessoaFisicaPorNumeroPropostaCpfOutputType" />
+ 
+   <xsd:complexType name="CarregarPessoaFisicaPorCodigoPessoaInputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaFisicaPorCodigoPessoaOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaFisicaDadosSocioPorCodigoPessoaInputType">
+      <xsd:sequence>
+         <xsd:element name="codigo-pessoa" type="xsd:long" minOccurs="1" maxOccurs="1" nillable="false" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaFisicaDadosSocioPorCodigoPessoaOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaFisicaPorNumeroPropostaCpfInputType">
+      <xsd:sequence>
+         <xsd:element name="numero-proposta" type="xsd:long" minOccurs="1" maxOccurs="1" nillable="false" />
+         <xsd:element name="cpf" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaFisicaPorNumeroPropostaCpfOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+</xsd:schema>

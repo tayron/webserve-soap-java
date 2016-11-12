@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+        version="1.0"
+        elementFormDefault="unqualified"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://ibk.com.br/v1/contabancaria"
+        xmlns:tns="http://ibk.com.br/v1/contabancaria"
+        xmlns:ebo="http://ibk.com.br/v1/ebo">
+
+    <xsd:import namespace="http://ibk.com.br/v1/ebo" schemaLocation="../../ebo/ContaBancaria.xsd" />
+
+    <xsd:element name="depositarEmContaBancariaInput" type="tns:depositarEmContaBancariaInputType" />
+    <xsd:element name="depositarEmContaBancariaOutput" type="tns:depositarEmContaBancariaOutputType" />
+    
+    <xsd:complexType name="depositarEmContaBancariaInputType">
+        <xsd:sequence>
+            <xsd:element name="conta" type="ebo:ContaBancariaType" minOccurs="1" maxOccurs="1" />
+            <xsd:element name="valor" type="xsd:double" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="depositarEmContaBancariaOutputType">
+        <xsd:sequence>
+            <xsd:element name="boolean" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="retirarDeContaBancariaInput" type="tns:retirarDeContaBancariaInputType" />
+    <xsd:element name="retirarDeContaBancariaOutput" type="tns:retirarDeContaBancariaOutputType" />
+    
+    <xsd:complexType name="retirarDeContaBancariaInputType">
+        <xsd:sequence>
+            <xsd:element name="conta" type="ebo:ContaBancariaType" minOccurs="1" maxOccurs="1" />
+            <xsd:element name="valor" type="xsd:double" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="retirarDeContaBancariaOutputType">
+        <xsd:sequence>
+            <xsd:element name="boolean" type="xsd:boolean" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

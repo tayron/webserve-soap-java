@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CarregarPessoaJuridicaService"
+    targetNamespace="http://ibk.com.br/v1/pessoa/juridica"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://ibk.com.br/v1/pessoa/juridica"
+    xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/pessoa/juridica">
+            <xsd:include schemaLocation="CarregarPessoaJuridica.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="carregarDadosSocioPJPorCodigoPessoaInputMsg">
+        <wsdl:part name="input" element="tns:carregarDadosSocioPJPorCodigoPessoaInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarDadosSocioPJPorCodigoPessoaOutputMsg">
+        <wsdl:part name="output" element="tns:carregarDadosSocioPJPorCodigoPessoaOutput" />
+    </wsdl:message>
+    
+    <wsdl:message name="carregarEmpresasPeloCpfRepresentanteInputMsg">
+        <wsdl:part name="input" element="tns:carregarEmpresasPeloCpfRepresentanteInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarEmpresasPeloCpfRepresentanteOutputMsg">
+        <wsdl:part name="output" element="tns:carregarEmpresasPeloCpfRepresentanteOutput" />
+    </wsdl:message>
+    
+    <wsdl:message name="carregarPessoaJuridicaPorCnpjEOuNomeInputMsg">
+        <wsdl:part name="input" element="tns:carregarPessoaJuridicaPorCnpjEOuNomeInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaJuridicaPorCnpjEOuNomeOutputMsg">
+        <wsdl:part name="output" element="tns:carregarPessoaJuridicaPorCnpjEOuNomeOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="carregarProponentePorNumeroPropostaInputMsg">
+        <wsdl:part name="input" element="tns:carregarProponentePorNumeroPropostaInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarProponentePorNumeroPropostaOutputMsg">
+        <wsdl:part name="output" element="tns:carregarProponentePorNumeroPropostaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="carregarInformacoesSociosProponentePorNumeroPropostaInputMsg">
+        <wsdl:part name="input" element="tns:carregarInformacoesSociosProponentePorNumeroPropostaInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarInformacoesSociosProponentePorNumeroPropostaOutputMsg">
+        <wsdl:part name="output" element="tns:carregarInformacoesSociosProponentePorNumeroPropostaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="carregarPessoaJuridicaPorCnpjInputMsg">
+        <wsdl:part name="input" element="tns:carregarPessoaJuridicaPorCnpjInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaJuridicaPorCnpjOutputMsg">
+        <wsdl:part name="output" element="tns:carregarPessoaJuridicaPorCnpjOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="carregarPessoaJuridicaComFaturamentosInputMsg">
+        <wsdl:part name="input" element="tns:carregarPessoaJuridicaComFaturamentosInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaJuridicaComFaturamentosOutputMsg">
+        <wsdl:part name="output" element="tns:carregarPessoaJuridicaComFaturamentosOutput" />
+    </wsdl:message>
+    
+    <wsdl:message name="carregarPessoaJuridicaPorIdInputMsg">
+        <wsdl:part name="input" element="tns:carregarPessoaJuridicaPorIdInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaJuridicaPorIdOutputMsg">
+        <wsdl:part name="output" element="tns:carregarPessoaJuridicaPorIdOutput" />
+    </wsdl:message>
+
+   	<wsdl:message name="carregarPessoaJuridicaJucemgSerasaPorCnpjInputMsg">
+        <wsdl:part name="input" element="tns:carregarPessoaJuridicaJucemgSerasaPorCnpjInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaJuridicaJucemgSerasaPorCnpjOutputMsg">
+        <wsdl:part name="output" element="tns:carregarPessoaJuridicaJucemgSerasaPorCnpjOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="carregarPessoaJuridicaFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="CarregarPessoaJuridicaPortType">
+        <wsdl:operation name="carregarDadosSocioPJPorCodigoPessoa">
+            <wsdl:input name="carregarDadosSocioPJPorCodigoPessoaInput" message="tns:carregarDadosSocioPJPorCodigoPessoaInputMsg" />
+            <wsdl:output name="carregarDadosSocioPJPorCodigoPessoaOutput" message="tns:carregarDadosSocioPJPorCodigoPessoaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaJuridicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarEmpresasPeloCpfRepresentante">
+            <wsdl:input name="carregarEmpresasPeloCpfRepresentanteInput" message="tns:carregarEmpresasPeloCpfRepresentanteInputMsg" />
+            <wsdl:output name="carregarEmpresasPeloCpfRepresentanteOutput" message="tns:carregarEmpresasPeloCpfRepresentanteOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaJuridicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarPessoaJuridicaPorCnpjEOuNome">
+            <wsdl:input name="carregarPessoaJuridicaPorCnpjEOuNomeInput" message="tns:carregarPessoaJuridicaPorCnpjEOuNomeInputMsg" />
+            <wsdl:output name="carregarPessoaJuridicaPorCnpjEOuNomeOutput" message="tns:carregarPessoaJuridicaPorCnpjEOuNomeOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaJuridicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarPessoaJuridicaPorCnpj">
+            <wsdl:input name="carregarPessoaJuridicaPorCnpjInput" message="tns:carregarPessoaJuridicaPorCnpjInputMsg" />
+            <wsdl:output name="carregarPessoaJuridicaPorCnpjOutput" message="tns:carregarPessoaJuridicaPorCnpjOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaJuridicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarPessoaJuridicaPorId">
+            <wsdl:input name="carregarPessoaJuridicaPorIdInput" message="tns:carregarPessoaJuridicaPorIdInputMsg" />
+            <wsdl:output name="carregarPessoaJuridicaPorIdOutput" message="tns:carregarPessoaJuridicaPorIdOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaJuridicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarProponentePorNumeroProposta">
+            <wsdl:input name="carregarProponentePorNumeroPropostaInput" message="tns:carregarProponentePorNumeroPropostaInputMsg" />
+            <wsdl:output name="carregarProponentePorNumeroPropostaOutput" message="tns:carregarProponentePorNumeroPropostaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaJuridicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarInformacoesSociosProponentePorNumeroProposta">
+            <wsdl:input name="carregarInformacoesSociosProponentePorNumeroPropostaInput" message="tns:carregarInformacoesSociosProponentePorNumeroPropostaInputMsg" />
+            <wsdl:output name="carregarInformacoesSociosProponentePorNumeroPropostaOutput" message="tns:carregarInformacoesSociosProponentePorNumeroPropostaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaJuridicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarPessoaJuridicaComFaturamentos">
+            <wsdl:input name="carregarPessoaJuridicaComFaturamentosInput" message="tns:carregarPessoaJuridicaComFaturamentosInputMsg" />
+            <wsdl:output name="carregarPessoaJuridicaComFaturamentosOutput" message="tns:carregarPessoaJuridicaComFaturamentosOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaJuridicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarPessoaJuridicaJucemgSerasaPorCnpj">
+            <wsdl:input name="carregarPessoaJuridicaJucemgSerasaPorCnpjInput" message="tns:carregarPessoaJuridicaJucemgSerasaPorCnpjInputMsg" />
+            <wsdl:output name="carregarPessoaJuridicaJucemgSerasaPorCnpjOutput" message="tns:carregarPessoaJuridicaJucemgSerasaPorCnpjOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaJuridicaFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CarregarPessoaJuridicaBinding" type="tns:CarregarPessoaJuridicaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="carregarDadosSocioPJPorCodigoPessoa">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarDadosSocioPJPorCodigoPessoaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarDadosSocioPJPorCodigoPessoaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="carregarEmpresasPeloCpfRepresentante">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarEmpresasPeloCpfRepresentanteInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarEmpresasPeloCpfRepresentanteOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="carregarPessoaJuridicaPorCnpjEOuNome">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPessoaJuridicaPorCnpjEOuNomeInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPessoaJuridicaPorCnpjEOuNomeOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="carregarPessoaJuridicaPorCnpj">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPessoaJuridicaPorCnpjInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPessoaJuridicaPorCnpjOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="carregarPessoaJuridicaPorId">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPessoaJuridicaPorIdInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPessoaJuridicaPorIdOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="carregarProponentePorNumeroProposta">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarProponentePorNumeroPropostaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarProponentePorNumeroPropostaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="carregarInformacoesSociosProponentePorNumeroProposta">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarInformacoesSociosProponentePorNumeroPropostaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarInformacoesSociosProponentePorNumeroPropostaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="carregarPessoaJuridicaComFaturamentos">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPessoaJuridicaComFaturamentosInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPessoaJuridicaComFaturamentosOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="carregarPessoaJuridicaJucemgSerasaPorCnpj">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPessoaJuridicaJucemgSerasaPorCnpjInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPessoaJuridicaJucemgSerasaPorCnpjOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+    </wsdl:binding>
+
+    <wsdl:service name="CarregarPessoaJuridicaService">
+        <wsdl:port name="CarregarPessoaJuridicaPort" binding="tns:CarregarPessoaJuridicaBinding">
+            <soap:address location="http://localhost:8080/base-ws/v1/pessoa/juridica/CarregarPessoaJuridicaService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema version="1.0"
+      elementFormDefault="unqualified"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      targetNamespace="http://ibk.com.br/v1/pessoa/juridica"
+      xmlns:tns="http://ibk.com.br/v1/pessoa/juridica"
+      xmlns:ebo="http://ibk.com.br/v1/ebo">
+
+   <xsd:import schemaLocation="../../../ebo/PessoaJuridica.xsd" namespace="http://ibk.com.br/v1/ebo" />
+
+   <xsd:element name="carregarDadosSocioPJPorCodigoPessoaInput" type="tns:CarregarDadosSocioPJPorCodigoPessoaInputType" />
+   <xsd:element name="carregarDadosSocioPJPorCodigoPessoaOutput" type="tns:CarregarDadosSocioPJPorCodigoPessoaOutputType" />
+
+   <xsd:complexType name="CarregarDadosSocioPJPorCodigoPessoaInputType">
+      <xsd:sequence>
+         <xsd:element name="codigo-pessoa" type="xsd:long" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarDadosSocioPJPorCodigoPessoaOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-juridica" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:element name="carregarProponentePorNumeroPropostaInput" type="tns:CarregarProponentePorNumeroPropostaInputType" />
+   <xsd:element name="carregarProponentePorNumeroPropostaOutput" type="tns:CarregarProponentePorNumeroPropostaOutputType" />
+
+   <xsd:complexType name="CarregarProponentePorNumeroPropostaInputType">
+      <xsd:sequence>
+         <xsd:element name="numero-proposta" type="xsd:long" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarProponentePorNumeroPropostaOutputType">
+      <xsd:sequence>
+         <xsd:element name="proponente" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:element name="carregarInformacoesSociosProponentePorNumeroPropostaInput" type="tns:CarregarInformacoesSociosProponentePorNumeroPropostaInputType" />
+   <xsd:element name="carregarInformacoesSociosProponentePorNumeroPropostaOutput" type="tns:CarregarInformacoesSociosProponentePorNumeroPropostaOutputType" />
+
+   <xsd:complexType name="CarregarInformacoesSociosProponentePorNumeroPropostaInputType">
+      <xsd:sequence>
+         <xsd:element name="numero-proposta" type="xsd:long" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarInformacoesSociosProponentePorNumeroPropostaOutputType">
+      <xsd:sequence>
+         <xsd:element name="proponente" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:element name="carregarEmpresasPeloCpfRepresentanteInput" type="tns:CarregarEmpresasPeloCpfRepresentanteInputType" />
+   <xsd:element name="carregarEmpresasPeloCpfRepresentanteOutput" type="tns:CarregarEmpresasPeloCpfRepresentanteOutputType" />
+   
+   <xsd:complexType name="CarregarEmpresasPeloCpfRepresentanteInputType">
+      <xsd:sequence>
+         <xsd:element name="cpf" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarEmpresasPeloCpfRepresentanteOutputType">
+      <xsd:sequence>
+         <xsd:element name="empresas" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="unbounded" />
+      </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:element name="carregarPessoaJuridicaPorCnpjEOuNomeInput" type="tns:CarregarPessoaJuridicaPorCnpjEOuNomeInputType" />
+   <xsd:element name="carregarPessoaJuridicaPorCnpjEOuNomeOutput" type="tns:CarregarPessoaJuridicaPorCnpjEOuNomeOutputType" />
+   
+   <xsd:complexType name="CarregarPessoaJuridicaPorCnpjEOuNomeInputType">
+      <xsd:sequence>
+         <xsd:element name="cnpj" type="xsd:string" minOccurs="0" maxOccurs="1" />
+         <xsd:element name="nome" type="xsd:string" minOccurs="0" maxOccurs="1" />
+         <xsd:element name="id-login-usuario" type="xsd:string" minOccurs="0" maxOccurs="1" />
+         <xsd:element name="cnpj-empresa-selecionada" type="xsd:string" minOccurs="0" maxOccurs="1" />
+         <xsd:element name="perfil-usuario" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaJuridicaPorCnpjEOuNomeOutputType">
+      <xsd:sequence>
+         <xsd:element name="lista-pessoa-juridica" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="unbounded" />
+      </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:element name="carregarPessoaJuridicaPorCnpjInput" type="tns:CarregarPessoaJuridicaPorCnpjInputType" />
+   <xsd:element name="carregarPessoaJuridicaPorCnpjOutput" type="tns:CarregarPessoaJuridicaPorCnpjOutputType" />
+
+    <xsd:complexType name="CarregarPessoaJuridicaPorCnpjInputType">
+        <xsd:sequence>
+            <xsd:element name="cnpj" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaJuridicaPorCnpjOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-juridica" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="unbounded" />
+      </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:element name="carregarPessoaJuridicaComFaturamentosInput" type="tns:CarregarPessoaJuridicaComFaturamentosInputType" />
+   <xsd:element name="carregarPessoaJuridicaComFaturamentosOutput" type="tns:CarregarPessoaJuridicaComFaturamentosOutputType" />
+   
+    <xsd:complexType name="CarregarPessoaJuridicaComFaturamentosInputType">
+        <xsd:sequence>
+            <xsd:element name="codigo-proposta" type="xsd:long" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaJuridicaComFaturamentosOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-juridica" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+ <xsd:element name="carregarPessoaJuridicaPorIdInput" type="tns:CarregarPessoaJuridicaPorIdInputType" />
+   <xsd:element name="carregarPessoaJuridicaPorIdOutput" type="tns:CarregarPessoaJuridicaPorIdOutputType" />
+   
+    <xsd:complexType name="CarregarPessoaJuridicaPorIdInputType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:long" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaJuridicaPorIdOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-juridica" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:element name="carregarPessoaJuridicaJucemgSerasaPorCnpjInput" type="tns:CarregarPessoaJuridicaJucemgSerasaPorCnpjInputType" />
+   <xsd:element name="carregarPessoaJuridicaJucemgSerasaPorCnpjOutput" type="tns:CarregarPessoaJuridicaJucemgSerasaPorCnpjOutputType" />
+   
+    <xsd:complexType name="CarregarPessoaJuridicaJucemgSerasaPorCnpjInputType">
+        <xsd:sequence>
+            <xsd:element name="cnpj" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+   <xsd:complexType name="CarregarPessoaJuridicaJucemgSerasaPorCnpjOutputType">
+      <xsd:sequence>
+         <xsd:element name="pessoa-juridica" type="ebo:PessoaJuridicaType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+   </xsd:complexType>
+   
+</xsd:schema>

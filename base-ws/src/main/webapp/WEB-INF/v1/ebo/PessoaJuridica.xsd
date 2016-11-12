@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema elementFormDefault="qualified" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://ibk.com.br/v1/ebo" 
+    xmlns:tns="http://ibk.com.br/v1/ebo">
+
+    <xsd:include schemaLocation="Pessoa.xsd" />
+    <xsd:include schemaLocation="Contato.xsd" />
+
+
+    <xsd:complexType name="PessoaJuridicaType">
+        <xsd:complexContent>
+            <xsd:extension base="tns:PessoaType">
+                <xsd:sequence>
+                    <xsd:element name="cnpj" type="xsd:string" maxOccurs="1" minOccurs="0" />
+                    <xsd:element name="inscricao-estadual" type="xsd:string" maxOccurs="1" minOccurs="0" />
+                    <xsd:element name="razao-social" type="xsd:string" maxOccurs="1" minOccurs="0" />
+                    <xsd:element name="data-inicio-atividade" type="xsd:date" maxOccurs="1" minOccurs="0" />
+                    <xsd:element name="valor-capital-social" type="xsd:decimal" maxOccurs="1" minOccurs="0" />
+                    <xsd:element name="numero-empregados" type="xsd:int" maxOccurs="1" minOccurs="0" />
+                    <xsd:element name="contato" type="tns:ContatoType" maxOccurs="1" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="PessoaJuridicaTypeArrayOf">
+        <xsd:sequence>
+            <xsd:element type="tns:PessoaJuridicaType" name="pessoa-juridica" maxOccurs="unbounded" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

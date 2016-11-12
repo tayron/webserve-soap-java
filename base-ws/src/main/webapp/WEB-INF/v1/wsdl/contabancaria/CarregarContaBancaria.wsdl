@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CarregarContaBancariaService" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    targetNamespace="http://ibk.com.br/v1/contabancaria" 
+    xmlns:tns="http://ibk.com.br/v1/contabancaria" 
+    xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <!-- IMPORTS (Namespaces diferentes) -->
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <!-- INCLUDES (Namespaces iguais) -->
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/contabancaria">
+            <xsd:include schemaLocation="CarregarContaBancaria.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="carregarPorCnpjPessoaInputMsg">
+        <wsdl:part name="input" element="tns:carregarContaBancariaPorCnpjPessoaInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPorCnpjPessoaOutputMsg">
+        <wsdl:part name="output" element="tns:carregarContaBancariaPorCnpjPessoaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="carregarPorCodigoPessoaInputMsg">
+        <wsdl:part name="input" element="tns:carregarContaBancariaPorCodigoPessoaInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPorCodigoPessoaOutputMsg">
+        <wsdl:part name="output" element="tns:carregarContaBancariaPorCodigoPessoaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="contaBancariaFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="CarregarContaBancariaPortType">
+        <wsdl:operation name="carregarPorCnpjPessoa">
+            <wsdl:input name="carregarPorCnpjPessoaInput" message="tns:carregarPorCnpjPessoaInputMsg" />
+            <wsdl:output name="carregarPorCnpjPessoaOutput" message="tns:carregarPorCnpjPessoaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:contaBancariaFault" />
+        </wsdl:operation>
+
+        <wsdl:operation name="carregarPorCodigoPessoa">
+            <wsdl:input name="carregarPorCodigoPessoaInput" message="tns:carregarPorCodigoPessoaInputMsg" />
+            <wsdl:output name="carregarPorCodigoPessoaOutput" message="tns:carregarPorCodigoPessoaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:contaBancariaFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CarregarContaBancariaBinding" type="tns:CarregarContaBancariaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="carregarPorCnpjPessoa">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPorCnpjPessoaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPorCnpjPessoaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="carregarPorCodigoPessoa">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPorCodigoPessoaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPorCodigoPessoaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+    <wsdl:service name="CarregarContaBancariaService">
+        <wsdl:port name="CarregarContaBancariaPort" binding="tns:CarregarContaBancariaBinding">
+            <soap:address location="http://localhost:8080/base-ws/v1/contabancaria/CarregarContaBancariaService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

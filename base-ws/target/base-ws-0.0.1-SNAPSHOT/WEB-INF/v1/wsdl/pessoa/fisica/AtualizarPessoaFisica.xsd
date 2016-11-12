@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+        version="1.0"
+        elementFormDefault="unqualified"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://ibk.com.br/v1/pessoa/fisica"
+        xmlns:tns="http://ibk.com.br/v1/pessoa/fisica"
+        xmlns:ebo="http://ibk.com.br/v1/ebo">
+
+    <xsd:import schemaLocation="../../../ebo/PessoaFisica.xsd" namespace="http://ibk.com.br/v1/ebo" />
+
+    <xsd:element name="atualizarPessoaFisicaInput" type="tns:AtualizarPessoaFisicaInputType" />
+    <xsd:element name="atualizarPessoaFisicaOutput" type="tns:AtualizarPessoaFisicaOutputType" />
+
+    <xsd:element name="atualizarPessoaFisicaDadosSocioInput" type="tns:AtualizarPessoaFisicaDadosSocioInputType" />
+    <xsd:element name="atualizarPessoaFisicaDadosSocioOutput" type="tns:AtualizarPessoaFisicaDadosSocioOutputType" />
+    
+    
+    <xsd:element name="atualizarERetornarPessoaFisicaInput" type="tns:AtualizarERetornarPessoaFisicaInputType" />
+    <xsd:element name="atualizarERetornarPessoaFisicaOutput" type="tns:AtualizarERetornarPessoaFisicaOutputType" />
+    
+    <xsd:complexType name="AtualizarPessoaFisicaInputType">
+        <xsd:sequence>
+            <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AtualizarPessoaFisicaOutputType">
+        <xsd:sequence>
+            <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AtualizarPessoaFisicaDadosSocioInputType">
+        <xsd:sequence>
+            <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AtualizarPessoaFisicaDadosSocioOutputType">
+        <xsd:sequence>
+            <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:complexType name="AtualizarERetornarPessoaFisicaInputType">
+        <xsd:sequence>
+            <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AtualizarERetornarPessoaFisicaOutputType">
+        <xsd:sequence>
+            <xsd:element name="pessoa-fisica" type="ebo:PessoaFisicaType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+</xsd:schema>

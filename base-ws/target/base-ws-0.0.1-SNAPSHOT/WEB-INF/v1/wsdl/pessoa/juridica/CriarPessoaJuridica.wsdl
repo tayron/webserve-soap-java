@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CriarPessoaJuridicaService"
+    targetNamespace="http://ibk.com.br/v1/pessoa/juridica"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://ibk.com.br/v1/pessoa/juridica"
+    xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/pessoa/juridica">
+            <xsd:include schemaLocation="CriarPessoaJuridica.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="criarPessoaJuridicaDadosSocioInputMsg">
+        <wsdl:part name="input" element="tns:criarPessoaJuridicaDadosSocioInput" />
+    </wsdl:message>
+    <wsdl:message name="criarPessoaJuridicaDadosSocioOutputMsg">
+        <wsdl:part name="output" element="tns:criarPessoaJuridicaDadosSocioOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="criarPessoaJuridicaFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="CriarPessoaJuridicaPortType">
+        <wsdl:operation name="criarPessoaJuridicaDadosSocio">
+            <wsdl:input name="criarPessoaJuridicaDadosSocioInput" message="tns:criarPessoaJuridicaDadosSocioInputMsg" />
+            <wsdl:output name="criarPessoaJuridicaDadosSocioOutput" message="tns:criarPessoaJuridicaDadosSocioOutputMsg" />
+            <wsdl:fault name="fault" message="tns:criarPessoaJuridicaFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CriarPessoaJuridicaBinding" type="tns:CriarPessoaJuridicaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="criarPessoaJuridicaDadosSocio">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="criarPessoaJuridicaDadosSocioInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="criarPessoaJuridicaDadosSocioOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+    </wsdl:binding>
+
+    <wsdl:service name="CriarPessoaJuridicaService">
+        <wsdl:port name="CriarPessoaJuridicaPort" binding="tns:CriarPessoaJuridicaBinding">
+            <soap:address location="http://localhost:8080/base-ws/v1/pessoa/juridica/CriarPessoaJuridicaService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

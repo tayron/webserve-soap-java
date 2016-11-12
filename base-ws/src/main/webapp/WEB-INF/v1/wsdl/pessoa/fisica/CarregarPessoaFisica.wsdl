@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CarregarPessoaFisicaService"
+    targetNamespace="http://ibk.com.br/v1/pessoa/fisica"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://ibk.com.br/v1/pessoa/fisica"
+    xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/pessoa/fisica">
+            <xsd:include schemaLocation="CarregarPessoaFisica.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="carregarPessoaFisicaPorCodigoPessoaInputMsg">
+        <wsdl:part name="input" element="tns:carregarPessoaFisicaPorCodigoPessoaInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaFisicaPorCodigoPessoaOutputMsg">
+        <wsdl:part name="output" element="tns:carregarPessoaFisicaPorCodigoPessoaOutput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaFisicaDadosSocioPorCodigoPessoaInputMsg">
+        <wsdl:part name="input" element="tns:carregarPessoaFisicaDadosSocioPorCodigoPessoaInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaFisicaDadosSocioPorCodigoPessoaOutputMsg">
+        <wsdl:part name="output" element="tns:carregarPessoaFisicaDadosSocioPorCodigoPessoaOutput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaFisicaPorNumeroPropostaCpfInputMsg">
+        <wsdl:part name="input" element="tns:carregarPessoaFisicaPorNumeroPropostaCpfInput" />
+    </wsdl:message>
+    <wsdl:message name="carregarPessoaFisicaPorNumeroPropostaCpfOutputMsg">
+        <wsdl:part name="output" element="tns:carregarPessoaFisicaPorNumeroPropostaCpfOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="carregarPessoaFisicaFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="CarregarPessoaFisicaPortType">
+        <wsdl:operation name="carregarPessoaFisicaPorCodigoPessoa">
+            <wsdl:input name="carregarPessoaFisicaPorCodigoPessoaInput" message="tns:carregarPessoaFisicaPorCodigoPessoaInputMsg" />
+            <wsdl:output name="carregarPessoaFisicaPorCodigoPessoaOutput" message="tns:carregarPessoaFisicaPorCodigoPessoaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaFisicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarPessoaFisicaDadosSocioPorCodigoPessoa">
+            <wsdl:input name="carregarPessoaFisicaDadosSocioPorCodigoPessoaInput" message="tns:carregarPessoaFisicaDadosSocioPorCodigoPessoaInputMsg" />
+            <wsdl:output name="carregarPessoaFisicaDadosSocioPorCodigoPessoaOutput" message="tns:carregarPessoaFisicaDadosSocioPorCodigoPessoaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaFisicaFault" />
+        </wsdl:operation>
+        <wsdl:operation name="carregarPessoaFisicaPorNumeroPropostaCpf">
+            <wsdl:input name="carregarPessoaFisicaPorNumeroPropostaCpfInput" message="tns:carregarPessoaFisicaPorNumeroPropostaCpfInputMsg" />
+            <wsdl:output name="carregarPessoaFisicaPorNumeroPropostaCpfOutput" message="tns:carregarPessoaFisicaPorNumeroPropostaCpfOutputMsg" />
+            <wsdl:fault name="fault" message="tns:carregarPessoaFisicaFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CarregarPessoaFisicaBinding" type="tns:CarregarPessoaFisicaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="carregarPessoaFisicaPorCodigoPessoa">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPessoaFisicaPorCodigoPessoaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPessoaFisicaPorCodigoPessoaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="carregarPessoaFisicaDadosSocioPorCodigoPessoa">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPessoaFisicaDadosSocioPorCodigoPessoaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPessoaFisicaDadosSocioPorCodigoPessoaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="carregarPessoaFisicaPorNumeroPropostaCpf">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="carregarPessoaFisicaPorNumeroPropostaCpfInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="carregarPessoaFisicaPorNumeroPropostaCpfOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="CarregarPessoaFisicaService">
+        <wsdl:port name="CarregarPessoaFisicaPort" binding="tns:CarregarPessoaFisicaBinding">
+            <soap:address location="http://localhost:8080/base-ws/v1/pessoa/fisica/CarregarPessoaFisicaService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

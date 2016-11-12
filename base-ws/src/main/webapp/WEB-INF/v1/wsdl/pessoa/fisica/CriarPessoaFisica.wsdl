@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CriarPessoaFisicaService"
+    targetNamespace="http://ibk.com.br/v1/pessoa/fisica"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://ibk.com.br/v1/pessoa/fisica"
+    xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/pessoa/fisica">
+            <xsd:include schemaLocation="CriarPessoaFisica.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="criarPessoaFisicaDadosSocioInputMsg">
+        <wsdl:part name="input" element="tns:criarPessoaFisicaDadosSocioInput" />
+    </wsdl:message>
+    <wsdl:message name="criarPessoaFisicaDadosSocioOutputMsg">
+        <wsdl:part name="output" element="tns:criarPessoaFisicaDadosSocioOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="criarPessoaFisicaFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+
+    <wsdl:portType name="CriarPessoaFisicaPortType">
+        <wsdl:operation name="criarPessoaFisicaDadosSocio">
+            <wsdl:input name="criarPessoaFisicaDadosSocioInput" message="tns:criarPessoaFisicaDadosSocioInputMsg" />
+            <wsdl:output name="criarPessoaFisicaDadosSocioOutput" message="tns:criarPessoaFisicaDadosSocioOutputMsg" />
+            <wsdl:fault name="fault" message="tns:criarPessoaFisicaFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CriarPessoaFisicaBinding" type="tns:CriarPessoaFisicaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="criarPessoaFisicaDadosSocio">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="criarPessoaFisicaDadosSocioInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="criarPessoaFisicaDadosSocioOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+    </wsdl:binding>
+
+    <wsdl:service name="CriarPessoaFisicaService">
+        <wsdl:port name="CriarPessoaFisicaPort" binding="tns:CriarPessoaFisicaBinding">
+            <soap:address location="http://localhost:8080/base-ws/v1/pessoa/fisica/CriarPessoaFisicaService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

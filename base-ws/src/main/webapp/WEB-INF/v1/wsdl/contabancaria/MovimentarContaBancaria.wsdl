@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+        name="MovimentarContaBancariaService"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        targetNamespace="http://ibk.com.br/v1/contabancaria"
+        xmlns:tns="http://ibk.com.br/v1/contabancaria"
+        xmlns:fault="http://ibk.com.br/v1/fault">
+
+    <wsdl:types>
+        <!-- IMPORTS (Namespaces diferentes) -->
+        <xsd:schema>
+            <xsd:import namespace="http://ibk.com.br/v1/fault" schemaLocation="../../fault/ServicoFault.xsd" />
+        </xsd:schema>
+        <!-- INCLUDES (Namespaces iguais) -->
+        <xsd:schema targetNamespace="http://ibk.com.br/v1/contabancaria">
+            <xsd:include schemaLocation="MovimentarContaBancaria.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="depositarEmContaBancariaInputMsg">
+        <wsdl:part name="input" element="tns:depositarEmContaBancariaInput" />
+    </wsdl:message>
+    <wsdl:message name="depositarEmContaBancariaOutputMsg">
+        <wsdl:part name="output" element="tns:depositarEmContaBancariaOutput" />
+    </wsdl:message>
+    
+    <wsdl:message name="retirarDeContaBancariaInputMsg">
+        <wsdl:part name="input" element="tns:retirarDeContaBancariaInput" />
+    </wsdl:message>
+    <wsdl:message name="retirarDeContaBancariaOutputMsg">
+        <wsdl:part name="output" element="tns:retirarDeContaBancariaOutput" />
+    </wsdl:message>
+
+    <wsdl:message name="contaBancariaFault">
+        <wsdl:part name="fault" element="fault:servicoFault" />
+    </wsdl:message>
+    
+    <wsdl:portType name="MovimentarContaBancariaPortType">
+        <wsdl:operation name="depositarEmContaBancaria">
+            <wsdl:input name="depositarEmContaBancariaInput" message="tns:depositarEmContaBancariaInputMsg" />
+            <wsdl:output name="depositarEmContaBancariaOutput" message="tns:depositarEmContaBancariaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:contaBancariaFault" />
+        </wsdl:operation>
+        
+        <wsdl:operation name="retirarDeContaBancaria">
+            <wsdl:input name="retirarDeContaBancariaInput" message="tns:retirarDeContaBancariaInputMsg" />
+            <wsdl:output name="retirarDeContaBancariaOutput" message="tns:retirarDeContaBancariaOutputMsg" />
+            <wsdl:fault name="fault" message="tns:contaBancariaFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <wsdl:binding name="MovimentarContaBancariaBinding" type="tns:MovimentarContaBancariaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        
+        <wsdl:operation name="depositarEmContaBancaria">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="depositarEmContaBancariaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="depositarEmContaBancariaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+        <wsdl:operation name="retirarDeContaBancaria">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="retirarDeContaBancariaInput">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="retirarDeContaBancariaOutput">
+                <soap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="fault">
+                <soap:fault name="fault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        
+    </wsdl:binding>
+    
+    <wsdl:service name="MovimentarContaBancariaService">
+        <wsdl:port name="MovimentarContaBancariaPort" binding="tns:MovimentarContaBancariaBinding">
+            <soap:address location="http://localhost:8080/base-ws/v1/contabancaria/MovimentarContaBancariaService?wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
